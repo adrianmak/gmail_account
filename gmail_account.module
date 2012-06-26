@@ -1,0 +1,28 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+function gmail_account_install() {
+  if (module_exists('smtp')) {
+    include_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'gmail_account') . '/gmail_account.inc';
+    
+    variable_set('smtp_host', $gmail_account_info["smtp_server_host"]);
+    variable_set('smtp_port', $gmail_account_info["smtp_server_port"]);
+    variable_set('smtp_protocol', $gmail_account_info["smtp_server_protocol"]);
+    variable_set('smtp_username', $gmail_account_info["smtp_auth_username"]);
+    variable_set('smtp_password', $gmail_account_info["smtp_auth_password"]);
+    variable_set('smtp_fromname', $gmail_account_info["sent_from_name"]);
+    variable_set('smtp_from', $gmail_account_info["sent_from_email"]);
+    variable_set('smtp_on', 1);
+    
+  };
+  drupal_set_message("gmail account configured.");
+}
+
+function gmail_account_uninstall() {
+
+}
+

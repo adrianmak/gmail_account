@@ -1,0 +1,6 @@
+name = gmail account
+description = "Use your gmail account for sending mail for local development"
+package = Mail
+dependencies[] = smtp
+project = "gmail_account"
+core = 7.x
